@@ -1,62 +1,24 @@
-body{
-
-    margin:0;
-
-}
-
-.sidebar{
-
-    background:#f8f9fa;
-
-    border-right:1px solid #ddd;
-
-    padding:20px;
-
-}
-
-.logo{
-
-    text-align:center;
-
-    margin-bottom:40px;
-
-}
-
-.logo img{
-
-    width:120px;
-
-}
-
-.sidebar ul{
-
-    list-style:none;
-
-    padding:0;
-
-}
-
-.sidebar li{
-
-    margin-bottom:20px;
-
-}
-
-.sidebar a{
-
-    text-decoration:none;
-
-    color:#003478;
-
-    font-weight:bold;
-
-}
-
-.content{
+.home-container{
 
     display:flex;
 
-    flex-direction:column;
+    align-items:center;
+
+    justify-content:space-between;
+
+    min-height:calc(100vh - 70px);
+
+    padding:40px;
+
+}
+
+/* Ranger */
+
+.vehicle-section{
+
+    flex:1;
+
+    display:flex;
 
     justify-content:center;
 
@@ -64,33 +26,63 @@ body{
 
 }
 
-.vehicle-card{
+.vehicle-image{
 
-    margin-top:40px;
+    width:100%;
 
-    text-align:center;
+    max-width:900px;
 
-    padding:30px;
-
-    border:1px solid #ddd;
-
-    border-radius:10px;
+    object-fit:contain;
 
 }
 
-.vehicle-card img{
+/* Card */
 
-    width:450px;
+.info-section{
 
-    max-width:100%;
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 
 }
 
-.vehicle-card h3{
+.info-card{
 
-    margin-top:20px;
+    width:100%;
+
+    max-width:420px;
+
+    background:rgba(255,255,255,.92);
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
 
 }
+
+.info-card h2{
+
+    color:#003478;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+}
+
+.info-card p{
+
+    margin-bottom:30px;
+
+}
+
+/* Sidebar */
 
 .sidebar{
 
@@ -102,23 +94,23 @@ body{
 
     width:220px;
 
-    height:100vh;
+    height:100%;
 
     background:white;
 
-    border-right:1px solid #ddd;
-
     transition:.3s;
+
+    padding:25px;
 
     display:flex;
 
     flex-direction:column;
 
-    padding:20px;
-
     gap:20px;
 
-    z-index:1000;
+    border-right:1px solid #ddd;
+
+    z-index:999;
 
 }
 
@@ -135,5 +127,33 @@ body{
     color:#003478;
 
     font-weight:bold;
+
+}
+
+/* Responsivo */
+
+@media(max-width:992px){
+
+.home-container{
+
+flex-direction:column;
+
+padding:25px;
+
+}
+
+.vehicle-image{
+
+max-width:500px;
+
+margin-bottom:40px;
+
+}
+
+.info-card{
+
+max-width:100%;
+
+}
 
 }

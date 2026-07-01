@@ -1,92 +1,47 @@
-<app-header
-  (toggleMenu)="alternarMenu()">
-</app-header>
+<app-header (toggleMenu)="alternarMenu()"></app-header>
 
-<div
-  class="sidebar"
-  [class.open]="menuAberto">
+<!-- Menu lateral -->
+<div class="sidebar" [class.open]="menuAberto">
 
-  <a routerLink="/home">
-    Home
-  </a>
+  <a routerLink="/home">Home</a>
 
-  <a routerLink="/dashboard">
-    Dashboard
-  </a>
+  <a routerLink="/dashboard">Dashboard</a>
 
-  <a routerLink="/login">
-    Logout
-  </a>
+  <a routerLink="/login">Logout</a>
 
 </div>
 
-<div class="container-fluid">
+<!-- Conteúdo -->
+<div class="home-container">
 
-  <div class="row vh-100">
+  <div class="vehicle-section">
 
-    <!-- Menu lateral -->
-    <aside class="col-2 sidebar">
+    <img
+      src="/images/ranger.png"
+      alt="Ford Ranger"
+      class="vehicle-image">
 
-      <div class="logo">
+  </div>
 
-        <img
-          src="/images/ford.png"
-          alt="Ford Logo">
+  <div class="info-section">
 
-      </div>
+    <div class="info-card">
 
-      <nav>
-
-        <ul>
-
-          <li>
-            <a routerLink="/home">
-              Home
-            </a>
-          </li>
-
-          <li>
-            <a routerLink="/dashboard">
-              Dashboard
-            </a>
-          </li>
-
-        </ul>
-
-      </nav>
-
-    </aside>
-
-    <!-- Conteúdo -->
-    <main class="col-10 content">
-
-      <h1>
-        Seja bem-vindo!
-      </h1>
+      <h2>Sistema Ford Enter</h2>
 
       <p>
-        Escolha um veículo para visualizar os detalhes.
+        Seja bem-vindo ao Dashboard.
       </p>
 
-      <div class="vehicle-card">
+      <button
+        routerLink="/dashboard"
+        class="btn btn-primary">
 
-        <img
-          src="/images/ranger.png"
-          alt="Ford Ranger">
+        Ver detalhes
 
-        <h3>
-          Ford Ranger
-        </h3>
+      </button>
 
-        <button class="btn btn-primary">
-
-          Ver detalhes
-
-        </button>
-
-      </div>
-
-    </main>
+    </div>
 
   </div>
 
