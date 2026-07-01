@@ -1,1 +1,93 @@
-<p>home works!</p>
+<app-header
+  (toggleMenu)="alternarMenu()">
+</app-header>
+
+<div
+  class="sidebar"
+  [class.open]="menuAberto">
+
+  <a routerLink="/home">
+    Home
+  </a>
+
+  <a routerLink="/dashboard">
+    Dashboard
+  </a>
+
+  <a routerLink="/login">
+    Logout
+  </a>
+
+</div>
+
+<div class="container-fluid">
+
+  <div class="row vh-100">
+
+    <!-- Menu lateral -->
+    <aside class="col-2 sidebar">
+
+      <div class="logo">
+
+        <img
+          src="/images/ford.png"
+          alt="Ford Logo">
+
+      </div>
+
+      <nav>
+
+        <ul>
+
+          <li>
+            <a routerLink="/home">
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a routerLink="/dashboard">
+              Dashboard
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="col-10 content">
+
+      <h1>
+        Seja bem-vindo!
+      </h1>
+
+      <p>
+        Escolha um veículo para visualizar os detalhes.
+      </p>
+
+      <div class="vehicle-card">
+
+        <img
+          src="/images/ranger.png"
+          alt="Ford Ranger">
+
+        <h3>
+          Ford Ranger
+        </h3>
+
+        <button class="btn btn-primary">
+
+          Ver detalhes
+
+        </button>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</div>

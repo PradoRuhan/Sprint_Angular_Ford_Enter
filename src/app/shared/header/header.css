@@ -1,0 +1,55 @@
+.header{
+
+    height:70px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 20px;
+
+    background:white;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+.left-side{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.menu-btn{
+
+    border:none;
+
+    background:none;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+}
+
+.ford-logo{
+
+    width:80px;
+
+}
+
+.logout-btn{
+
+    text-decoration:none;
+
+    color:#003478;
+
+    font-weight:bold;
+
+}
