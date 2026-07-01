@@ -1,1 +1,100 @@
-<p>login works!</p>
+<div class="container-fluid login-page">
+
+  <div class="row min-vh-100">
+
+    <!-- Lado esquerdo -->
+    <div class="col-lg-7 d-none d-lg-flex image-side">
+
+      <div class="image-container">
+
+        <img
+          src="/images/ranger.png"
+          alt="Ford Ranger"
+          class="vehicle-image">
+
+      </div>
+
+    </div>
+
+    <!-- Lado direito -->
+    <div class="col-lg-5 login-side">
+
+      <div class="login-card">
+
+        <div class="login-header">
+
+          <img
+            src="/images/ford.png"
+            alt="Ford"
+            class="logo">
+
+          <h1>Ford Enter - Dashboard</h1>
+
+          <p>
+            Faça login para continuar
+          </p>
+
+        </div>
+
+        <form
+          [formGroup]="loginForm"
+          (ngSubmit)="onLogin()">
+
+          <div class="mb-4">
+
+            <label
+              for="username"
+              class="form-label">
+
+              Usuário
+
+            </label>
+
+            <input
+              id="username"
+              type="text"
+              class="form-control"
+              placeholder="Digite seu usuário"
+              formControlName="username"
+              autocomplete="username">
+
+          </div>
+
+          <div class="mb-4">
+
+            <label
+              for="password"
+              class="form-label">
+
+              Senha
+
+            </label>
+
+            <input
+              id="password"
+              type="password"
+              class="form-control"
+              placeholder="Digite sua senha"
+              formControlName="password"
+              autocomplete="current-password">
+
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary w-100"
+            [disabled]="loginForm.invalid">
+
+            Entrar
+
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
