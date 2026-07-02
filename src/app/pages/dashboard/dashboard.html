@@ -1,37 +1,166 @@
 <app-header></app-header>
 
-<div class="dashboard-container">
+<div class="container-fluid mt-4">
 
-  <div class="vehicle-image">
+  <div class="row">
 
-    <img
-      src="/images/ranger.png"
-      alt="Ford Ranger">
+    <div class="col-12">
+
+      <h2 class="mb-4">
+        Dashboard
+      </h2>
+
+    </div>
+
+  </div>
+
+  <!-- Seleção do veículo -->
+  <div class="row mb-4">
+
+    <div class="col-md-4">
+
+      <label class="form-label">
+        Veículo
+      </label>
+
+      <select
+  class="form-select"
+  [(ngModel)]="selectedVehicle"
+  (change)="onVehicleChange()">
+
+        @for(vehicle of vehicles; track vehicle.id){
+
+          <option [ngValue]="vehicle">
+
+            {{ vehicle.vehicle }}
+
+          </option>
+
+        }
+
+      </select>
+
+    </div>
 
   </div>
 
-  <div class="vehicle-info">
+  @if(selectedVehicle){
 
-    <h2>Ford Ranger</h2>
+    <!-- Cards -->
+    <div class="row g-3 mb-4">
 
-    <p><strong>Modelo:</strong> Ranger</p>
+      <div class="col-md-4">
 
-    <p><strong>Ano:</strong> --</p>
+        <app-dashboard-card
+          title="Total de vendas"
+          [value]="selectedVehicle.volumetotal">
+        </app-dashboard-card>
 
-    <p><strong>Cor:</strong> --</p>
+      </div>
 
-    <p><strong>Preço:</strong> --</p>
+      <div class="col-md-4">
 
-    <p><strong>Combustível:</strong> --</p>
+        <app-dashboard-card
+          title="Conectados"
+          [value]="selectedVehicle.connected">
+        </app-dashboard-card>
 
-    <button
-      routerLink="/home"
-      class="btn btn-primary">
+      </div>
 
-      Voltar
+      <div class="col-md-4">
 
-    </button>
+        <app-dashboard-card
+          title="Software Updates"
+          [value]="selectedVehicle.softwareUpdates">
+        </app-dashboard-card>
 
-  </div>
+      </div>
+
+    </div>
+
+    <!-- Imagem -->
+    <div class="row">
+
+      <div class="col-lg-5 text-center">
+
+        <img
+          [src]="selectedVehicle.img"
+          [alt]="selectedVehicle.vehicle"
+          class="img-fluid vehicle-image">
+
+      </div>
+
+      <!-- Tabela -->
+      <div class="col-lg-7">
+
+        <table class="table table-bordered">
+
+          <thead>
+
+            <tr>
+
+              <th>VIN</th>
+
+              <th>Odômetro</th>
+
+              <th>Combustível</th>
+
+              <th>Status</th>
+
+              <th>Latitude</th>
+
+              <th>Longitude</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+  @if(vehicleData){
+
+    <tr>
+
+      <td>{{ VEHICLE_VINS[selectedVehicle!.vehicle] }}</td>
+
+      <td>{{ vehicleData.odometro }} km</td>
+
+      <td>{{ vehicleData.nivelCombustivel }}%</td>
+
+      <td>
+
+        @if(vehicleData.status === 'on'){
+
+          <span class="badge bg-success">
+            Ligado
+          </span>
+
+        } @else {
+
+          <span class="badge bg-danger">
+            Desligado
+          </span>
+
+        }
+
+      </td>
+
+      <td>{{ vehicleData.lat }}</td>
+
+      <td>{{ vehicleData.long }}</td>
+
+    </tr>
+
+  }
+
+</tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  }
 
 </div>
