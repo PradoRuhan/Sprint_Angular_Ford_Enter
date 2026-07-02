@@ -1,166 +1,177 @@
 <app-header></app-header>
 
-<div class="container-fluid mt-4">
+<div class="container-fluid dashboard-page">
 
-  <div class="row">
+  <div class="container py-4">
 
-    <div class="col-12">
+    <h2 class="text-center dashboard-title mb-4">
+      Dashboard FORD
+    </h2>
 
-      <h2 class="mb-4">
-        Dashboard
-      </h2>
-
-    </div>
-
-  </div>
-
-  <!-- Seleção do veículo -->
-  <div class="row mb-4">
-
-    <div class="col-md-4">
-
-      <label class="form-label">
-        Veículo
-      </label>
-
-      <select
-  class="form-select"
-  [(ngModel)]="selectedVehicle"
-  (change)="onVehicleChange()">
-
-        @for(vehicle of vehicles; track vehicle.id){
-
-          <option [ngValue]="vehicle">
-
-            {{ vehicle.vehicle }}
-
-          </option>
-
-        }
-
-      </select>
-
-    </div>
-
-  </div>
-
-  @if(selectedVehicle){
-
-    <!-- Cards -->
-    <div class="row g-3 mb-4">
+    <!-- Seleção do veículo -->
+    <div class="row justify-content-center mb-4">
 
       <div class="col-md-4">
 
-        <app-dashboard-card
-          title="Total de vendas"
-          [value]="selectedVehicle.volumetotal">
-        </app-dashboard-card>
+        <label class="form-label fw-bold">
+          Veículo
+        </label>
 
-      </div>
+        <select
+          class="form-select"
+          [(ngModel)]="selectedVehicle"
+          (change)="onVehicleChange()">
 
-      <div class="col-md-4">
+          @for(vehicle of vehicles; track vehicle.id){
 
-        <app-dashboard-card
-          title="Conectados"
-          [value]="selectedVehicle.connected">
-        </app-dashboard-card>
+            <option [ngValue]="vehicle">
 
-      </div>
+              {{ vehicle.vehicle }}
 
-      <div class="col-md-4">
+            </option>
 
-        <app-dashboard-card
-          title="Software Updates"
-          [value]="selectedVehicle.softwareUpdates">
-        </app-dashboard-card>
+          }
+
+        </select>
 
       </div>
 
     </div>
 
-    <!-- Imagem -->
-    <div class="row">
+    @if(selectedVehicle){
 
-      <div class="col-lg-5 text-center">
+      <!-- Cards -->
 
-        <img
-          [src]="selectedVehicle.img"
-          [alt]="selectedVehicle.vehicle"
-          class="img-fluid vehicle-image">
+      <div class="row g-3 justify-content-center mb-4">
+
+        <div class="col-lg-3 col-md-4">
+
+          <app-dashboard-card
+            title="Total de Vendas"
+            [value]="selectedVehicle.volumetotal">
+          </app-dashboard-card>
+
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+
+          <app-dashboard-card
+            title="Conectados"
+            [value]="selectedVehicle.connected">
+          </app-dashboard-card>
+
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+
+          <app-dashboard-card
+            title="Software Updates"
+            [value]="selectedVehicle.softwareUpdates">
+          </app-dashboard-card>
+
+        </div>
+
+      </div>
+
+      <!-- Imagem -->
+
+      <div class="row mb-4">
+
+        <div class="col-12 text-center">
+
+          <img
+            [src]="selectedVehicle.img"
+            [alt]="selectedVehicle.vehicle"
+            class="vehicle-image">
+
+        </div>
 
       </div>
 
       <!-- Tabela -->
-      <div class="col-lg-7">
 
-        <table class="table table-bordered">
+      <div class="row">
 
-          <thead>
+        <div class="col-12">
 
-            <tr>
+          <div class="table-responsive">
 
-              <th>VIN</th>
+            <table class="table table-bordered table-hover align-middle">
 
-              <th>Odômetro</th>
+              <thead class="table-primary">
 
-              <th>Combustível</th>
+                <tr>
 
-              <th>Status</th>
+                  <th>VIN</th>
 
-              <th>Latitude</th>
+                  <th>Odômetro</th>
 
-              <th>Longitude</th>
+                  <th>Combustível</th>
 
-            </tr>
+                  <th>Status</th>
 
-          </thead>
+                  <th>Latitude</th>
 
-          <tbody>
+                  <th>Longitude</th>
 
-  @if(vehicleData){
+                </tr>
 
-    <tr>
+              </thead>
 
-      <td>{{ VEHICLE_VINS[selectedVehicle!.vehicle] }}</td>
+              <tbody>
 
-      <td>{{ vehicleData.odometro }} km</td>
+                @if(vehicleData){
 
-      <td>{{ vehicleData.nivelCombustivel }}%</td>
+                  <tr>
 
-      <td>
+                    <td>{{ VEHICLE_VINS[selectedVehicle!.vehicle] }}</td>
 
-        @if(vehicleData.status === 'on'){
+                    <td>{{ vehicleData.odometro }} km</td>
 
-          <span class="badge bg-success">
-            Ligado
-          </span>
+                    <td>{{ vehicleData.nivelCombustivel }}%</td>
 
-        } @else {
+                    <td>
 
-          <span class="badge bg-danger">
-            Desligado
-          </span>
+                      @if(vehicleData.status === 'on'){
 
-        }
+                        <span class="badge bg-success">
 
-      </td>
+                          Ligado
 
-      <td>{{ vehicleData.lat }}</td>
+                        </span>
 
-      <td>{{ vehicleData.long }}</td>
+                      } @else {
 
-    </tr>
+                        <span class="badge bg-danger">
 
-  }
+                          Desligado
 
-</tbody>
+                        </span>
 
-        </table>
+                      }
+
+                    </td>
+
+                    <td>{{ vehicleData.lat }}</td>
+
+                    <td>{{ vehicleData.long }}</td>
+
+                  </tr>
+
+                }
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
 
       </div>
 
-    </div>
+    }
 
-  }
+  </div>
 
 </div>

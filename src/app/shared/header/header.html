@@ -1,32 +1,58 @@
 <header class="header">
 
-  <div class="left-side">
+  <div class="left">
 
     <button
-  class="menu-btn"
-  (click)="abrirMenu()">
+      class="menu-button"
+      (click)="abrirMenu()">
 
-  ☰
+      ☰
 
-</button>
+    </button>
 
     <img
       src="/images/ford.png"
-      alt="Ford Logo"
-      class="ford-logo">
+      alt="Ford"
+      class="logo">
+
+    <span class="title">
+
+      Ford Enter
+
+    </span>
 
   </div>
 
-  <div class="right-side">
+  <div class="right">
 
-    <a
-      routerLink="/login"
-      class="logout-btn">
+    <button
+      class="logout-btn"
+      (click)="logout()">
 
       Logout
 
-    </a>
+    </button>
 
   </div>
 
 </header>
+
+@if(menuOpen){
+
+<div class="mobile-menu">
+
+  <a routerLink="/home">
+
+    Home
+
+  </a>
+
+  <a routerLink="/dashboard">
+
+    Dashboard
+
+  </a>
+
+</div>
+
+}

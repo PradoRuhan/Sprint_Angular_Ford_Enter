@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +13,22 @@ export class Header {
   @Output()
   toggleMenu = new EventEmitter<void>();
 
-  abrirMenu() {
+  menuOpen = false;
+
+  constructor(private router: Router){}
+
+  abrirMenu(): void{
+
+    this.menuOpen = !this.menuOpen;
+
     this.toggleMenu.emit();
+
+  }
+
+  logout(): void{
+
+    this.router.navigate(['/login']);
+
   }
 
 }
