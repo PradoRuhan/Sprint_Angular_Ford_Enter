@@ -8,8 +8,13 @@ import { Component, Input } from '@angular/core';
 })
 export class DashboardCard {
 
-  @Input() title = '';
+  @Input()
+  title = '';
 
-  @Input() value: string | number = '';
+  @Input()
+  value: number | string = '';
+
+  @Input()
+  icon = '';
 
 }

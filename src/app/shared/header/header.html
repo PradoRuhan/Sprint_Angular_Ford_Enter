@@ -3,31 +3,39 @@
   <div class="left">
 
     <button
-      class="menu-button"
+      class="menu-btn"
       (click)="abrirMenu()">
 
-      ☰
+      <i class="bi bi-list"></i>
 
     </button>
 
     <img
       src="/images/ford.png"
-      alt="Ford"
-      class="logo">
+      class="logo"
+      alt="Ford">
 
     <span class="title">
-
       Ford Enter
-
     </span>
 
   </div>
 
   <div class="right">
 
+    <div class="user">
+
+      <i class="bi bi-person-circle"></i>
+
+      <span>Administrador</span>
+
+    </div>
+
     <button
-      class="logout-btn"
-      (click)="logout()">
+      routerLink="/login"
+      class="logout">
+
+      <i class="bi bi-box-arrow-right"></i>
 
       Logout
 
@@ -37,22 +45,47 @@
 
 </header>
 
-@if(menuOpen){
+<nav
+  class="side-menu"
+  [class.open]="menuOpen">
 
-<div class="mobile-menu">
+  <a
+    routerLink="/home"
+    (click)="abrirMenu()">
 
-  <a routerLink="/home">
+    <i class="bi bi-house-door"></i>
 
     Home
 
   </a>
 
-  <a routerLink="/dashboard">
+  <a
+    routerLink="/dashboard"
+    (click)="abrirMenu()">
+
+    <i class="bi bi-speedometer2"></i>
 
     Dashboard
 
   </a>
 
-</div>
+  <hr>
 
-}
+  <a
+    routerLink="/login"
+    (click)="abrirMenu()">
+
+    <i class="bi bi-box-arrow-right"></i>
+
+    Logout
+
+  </a>
+
+</nav>
+
+<div
+  class="overlay"
+  *ngIf="menuOpen"
+  (click)="abrirMenu()">
+
+</div>

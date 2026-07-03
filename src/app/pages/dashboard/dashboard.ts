@@ -30,6 +30,8 @@ export class Dashboard implements OnInit {
 
   vehicleData: VehicleData | null = null;
 
+  vin = '';
+
   readonly VEHICLE_VINS = VEHICLE_VINS;
 
   constructor(
@@ -37,9 +39,7 @@ export class Dashboard implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
     this.loadVehicles();
-
   }
 
   loadVehicles(): void {
@@ -72,6 +72,8 @@ export class Dashboard implements OnInit {
 
   onVehicleChange(): void {
 
+    this.vin = '';
+
     this.loadVehicleData();
 
   }
@@ -84,9 +86,10 @@ export class Dashboard implements OnInit {
 
     }
 
-    const vin = VEHICLE_VINS[this.selectedVehicle.vehicle];
+    const vinSelecionado =
+      this.VEHICLE_VINS[this.selectedVehicle.vehicle];
 
-    this.vehicleService.getVehicleData(vin).subscribe({
+    this.vehicleService.getVehicleData(vinSelecionado).subscribe({
 
       next: (response) => {
 
@@ -97,6 +100,46 @@ export class Dashboard implements OnInit {
       error: (error) => {
 
         console.error(error);
+
+      }
+
+    });
+
+  }
+
+  buscarVin(): void {
+
+    if (!this.vin.trim()) {
+
+      alert('Digite um código VIN.');
+
+      return;
+
+    }
+
+    this.vehicleService.getVehicleData(this.vin).subscribe({
+
+      next: (response) => {
+
+        this.vehicleData = response;
+
+        const vehicle = this.vehicles.find(
+
+          v => v.id === response.id
+
+        );
+
+        if (vehicle) {
+
+          this.selectedVehicle = vehicle;
+
+        }
+
+      },
+
+      error: () => {
+
+        alert('VIN não encontrado.');
 
       }
 

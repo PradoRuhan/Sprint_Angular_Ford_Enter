@@ -1,27 +1,30 @@
 .home-container{
 
+    min-height:100vh;
+    background:#fff;
+    padding-top:72px;
     display:flex;
-
+    justify-content:center;
     align-items:center;
-
-    justify-content:space-between;
-
-    min-height:calc(100vh - 70px);
-
-    padding:40px;
 
 }
 
-/* Ranger */
+.home-content{
 
-.vehicle-section{
+    width:100%;
+    max-width:1500px;
+    padding:40px 70px;
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    align-items:center;
+    gap:40px;
 
-    flex:1;
+}
+
+.image-section{
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
 }
@@ -29,130 +32,136 @@
 .vehicle-image{
 
     width:100%;
-
-    max-width:900px;
-
-    object-fit:contain;
+    max-width:850px;
+    transition:.35s;
 
 }
 
-/* Card */
+.vehicle-image:hover{
 
-.info-section{
+    transform:scale(1.03);
 
-    flex:1;
+}
+
+.card-section{
 
     display:flex;
-
     justify-content:center;
 
-    align-items:center;
-
 }
 
-.info-card{
+.welcome-card{
 
     width:100%;
-
-    max-width:420px;
-
-    background:rgba(255,255,255,.92);
-
-    padding:40px;
-
-    border-radius:20px;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    max-width:470px;
+    background:#fff;
+    border-radius:24px;
+    padding:45px;
+    box-shadow:0 18px 45px rgba(0,0,0,.12);
+    text-align:center;
 
 }
 
-.info-card h2{
+.ford-logo{
+
+    width:155px;
+    margin-bottom:18px;
+
+}
+
+.welcome-card h1{
 
     color:#003478;
-
-    font-weight:bold;
-
-    margin-bottom:20px;
+    font-weight:700;
+    margin-bottom:8px;
 
 }
 
-.info-card p{
+.welcome-card h3{
 
-    margin-bottom:30px;
+    color:#1976d2;
+    font-weight:500;
+    margin-bottom:28px;
+    line-height:1.4;
 
 }
 
-/* Sidebar */
+.welcome-card p{
 
-.sidebar{
+    color:#666;
+    font-size:17px;
+    line-height:1.8;
+    margin-bottom:35px;
 
-    position:fixed;
+}
 
-    top:70px;
+.dashboard-btn{
 
-    left:-220px;
-
-    width:220px;
-
-    height:100%;
-
-    background:white;
-
-    transition:.3s;
-
-    padding:25px;
-
+    height:56px;
+    border-radius:12px;
     display:flex;
-
-    flex-direction:column;
-
-    gap:20px;
-
-    border-right:1px solid #ddd;
-
-    z-index:999;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    font-size:19px;
+    font-weight:600;
 
 }
 
-.sidebar.open{
+.dashboard-btn i{
 
-    left:0;
-
-}
-
-.sidebar a{
-
-    text-decoration:none;
-
-    color:#003478;
-
-    font-weight:bold;
+    font-size:22px;
 
 }
 
-/* Responsivo */
+.dashboard-btn:hover{
 
-@media(max-width:992px){
+    transform:translateY(-2px);
+    transition:.25s;
 
-.home-container{
+}
 
-flex-direction:column;
+@media(max-width:1200px){
 
-padding:25px;
+.home-content{
+
+    grid-template-columns:1fr;
+    gap:50px;
+    text-align:center;
 
 }
 
 .vehicle-image{
 
-max-width:500px;
-
-margin-bottom:40px;
+    max-width:700px;
 
 }
 
-.info-card{
+.card-section{
 
-max-width:100%;
+    justify-content:center;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.home-content{
+
+    padding:30px 20px;
+
+}
+
+.vehicle-image{
+
+    width:95%;
+
+}
+
+.welcome-card{
+
+    padding:30px;
 
 }
 

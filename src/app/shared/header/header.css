@@ -1,95 +1,173 @@
 .header{
 
-    height:70px;
-
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:72px;
     background:#003478;
-
-    color:white;
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     padding:0 25px;
-
-    box-shadow:0 3px 8px rgba(0,0,0,.15);
+    z-index:1000;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
 
 }
 
 .left{
 
     display:flex;
-
     align-items:center;
+    gap:16px;
 
-    gap:15px;
+}
+
+.menu-btn{
+
+    background:none;
+    border:none;
+    color:white;
+    font-size:32px;
+    cursor:pointer;
 
 }
 
 .logo{
 
-    height:34px;
+    width:95px;
 
 }
 
 .title{
 
-    font-size:20px;
-
-    font-weight:600;
-
-}
-
-.menu-button{
-
-    border:none;
-
-    background:transparent;
-
     color:white;
-
-    font-size:28px;
-
-    cursor:pointer;
-
-}
-
-.logout-btn{
-
-    border:none;
-
-    background:white;
-
-    color:#003478;
-
-    padding:8px 18px;
-
-    border-radius:8px;
-
+    font-size:30px;
     font-weight:600;
 
 }
 
-.mobile-menu{
-
-    background:#003478;
+.right{
 
     display:flex;
-
-    flex-direction:column;
-
-    padding:15px;
+    align-items:center;
+    gap:25px;
 
 }
 
-.mobile-menu a{
+.user{
 
     color:white;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:18px;
 
+}
+
+.user i{
+
+    font-size:30px;
+
+}
+
+.logout{
+
+    background:white;
+    border:none;
+    color:#003478;
+    border-radius:10px;
+    padding:10px 20px;
+    font-weight:600;
+    transition:.25s;
+
+}
+
+.logout:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.side-menu{
+
+    position:fixed;
+    top:72px;
+    left:-270px;
+    width:250px;
+    height:calc(100vh - 72px);
+    background:white;
+    transition:.3s;
+    box-shadow:5px 0 20px rgba(0,0,0,.18);
+    z-index:999;
+    padding-top:20px;
+
+}
+
+.side-menu.open{
+
+    left:0;
+
+}
+
+.side-menu a{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
     text-decoration:none;
+    color:#003478;
+    font-weight:600;
+    padding:18px 25px;
+    transition:.2s;
 
-    padding:10px 0;
+}
+
+.side-menu a:hover{
+
+    background:#f3f6fb;
+
+}
+
+.side-menu i{
+
+    font-size:20px;
+
+}
+
+.overlay{
+
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.25);
+    z-index:998;
+
+}
+
+@media(max-width:768px){
+
+.title{
+
+    display:none;
+
+}
+
+.user span{
+
+    display:none;
+
+}
+
+.logo{
+
+    width:75px;
+
+}
+
+.logout{
+
+    padding:8px 14px;
+
+}
 
 }

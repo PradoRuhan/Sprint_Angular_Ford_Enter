@@ -1,47 +1,52 @@
-<app-header (toggleMenu)="alternarMenu()"></app-header>
+<app-header></app-header>
 
-<!-- Menu lateral -->
-<div class="sidebar" [class.open]="menuAberto">
-
-  <a routerLink="/home">Home</a>
-
-  <a routerLink="/dashboard">Dashboard</a>
-
-  <a routerLink="/login">Logout</a>
-
-</div>
-
-<!-- Conteúdo -->
 <div class="home-container">
 
-  <div class="vehicle-section">
+  <div class="home-content">
 
-    <img
-      src="/images/ranger.png"
-      alt="Ford Ranger"
-      class="vehicle-image">
+    <!-- Mustang -->
 
-  </div>
+    <section class="image-section">
 
-  <div class="info-section">
+      <img
+        src="/images/mustang.png"
+        alt="Ford Mustang"
+        class="vehicle-image">
 
-    <div class="info-card">
+    </section>
 
-      <h2>Sistema Ford Enter</h2>
+    <!-- Card -->
 
-      <p>
-        Seja bem-vindo ao Dashboard.
-      </p>
+    <section class="card-section">
 
-      <button
-        routerLink="/dashboard"
-        class="btn btn-primary">
+      <div class="welcome-card">
 
-        Ver detalhes
+        <img
+          src="/images/ford.png"
+          alt="Ford"
+          class="ford-logo">
 
-      </button>
+        <h1>Ford Enter</h1>
 
-    </div>
+        <h3>Sistema Inteligente de Monitoramento</h3>
+
+        <p>
+          Bem-vindo ao sistema de monitoramento de veículos conectados da Ford.
+        </p>
+
+        <a
+          routerLink="/dashboard"
+          class="btn btn-primary dashboard-btn">
+
+          <i class="bi bi-speedometer2"></i>
+
+          <span>Dashboard</span>
+
+        </a>
+
+      </div>
+
+    </section>
 
   </div>
 

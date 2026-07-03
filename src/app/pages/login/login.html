@@ -2,7 +2,7 @@
 
   <div class="row min-vh-100">
 
-    <!-- Lado esquerdo -->
+    <!-- Imagem -->
     <div class="col-lg-7 d-none d-lg-flex image-side">
 
       <div class="image-container">
@@ -16,42 +16,41 @@
 
     </div>
 
-    <!-- Lado direito -->
+    <!-- Login -->
     <div class="col-lg-5 login-side">
 
       <div class="login-card">
 
-        <div class="login-header">
+        <img
+          src="/images/ford.png"
+          alt="Ford"
+          class="logo">
 
-          <img
-            src="/images/ford.png"
-            alt="Ford"
-            class="logo">
+        <h2>Ford Enter - Dashboard</h2>
 
-          <h1>Ford Enter - Dashboard</h1>
-
-          <p>
-            Faça login para continuar
-          </p>
-
-        </div>
+        <p class="subtitle">
+          Faça login para continuar
+        </p>
 
         <form
           [formGroup]="loginForm"
           (ngSubmit)="onLogin()">
 
-          <div class="mb-4">
+          <!-- Usuário -->
 
-            <label
-              for="username"
-              class="form-label">
+          <label class="form-label">
+            Usuário
+          </label>
 
-              Usuário
+          <div class="input-group mb-4">
 
-            </label>
+            <span class="input-group-text">
+
+              <i class="bi bi-person"></i>
+
+            </span>
 
             <input
-              id="username"
               type="text"
               class="form-control"
               placeholder="Digite seu usuário"
@@ -60,30 +59,41 @@
 
           </div>
 
-          <div class="mb-4">
+          <!-- Senha -->
 
-            <label
-              for="password"
-              class="form-label">
+          <label class="form-label">
+            Senha
+          </label>
 
-              Senha
+          <div class="input-group mb-4">
 
-            </label>
+            <span class="input-group-text">
+
+              <i class="bi bi-lock"></i>
+
+            </span>
 
             <input
-              id="password"
               type="password"
               class="form-control"
               placeholder="Digite sua senha"
               formControlName="password"
               autocomplete="current-password">
 
+            <span class="input-group-text">
+
+              <i class="bi bi-eye"></i>
+
+            </span>
+
           </div>
 
           <button
+            class="btn btn-primary login-btn"
             type="submit"
-            class="btn btn-primary w-100"
             [disabled]="loginForm.invalid">
+
+            <i class="bi bi-box-arrow-in-right me-2"></i>
 
             Entrar
 
